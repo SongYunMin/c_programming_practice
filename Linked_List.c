@@ -15,12 +15,12 @@ int main(void)
 {
 	NODE *list = NULL;		// NODE를 가르키는 헤드포인터 정의
 	NODE *prev, *p, *next;
-	
+
 	char buffer[S_SIZE];
 	int year;
 
 	// 연결 리스트에 정보를 입력한다.
-	
+
 	while (1)
 	{
 		printf("Please enter the title of the book (Exit : Enter) : ");
@@ -46,20 +46,20 @@ int main(void)
 
 	// 연결 리스트에 들어 있는 정보를 모두 출력한다.
 
-	p = list;
+	p = list;	// 헤드포인터 list를 p에 대입
 	while (p != NULL)
 	{
-		printf("[%s,%d]->", p->title, p->year);
-		p = p->link;
+		printf("[%s,%d]->", p->title, p->year); // 노드에 방문
+		p = p->link;							// 링크 필드의 값을 p에 대입
 	}
 
 	printf("\n");
 	// 동적할당 반납
-	p = list;
-	while (p != NULL) {
-		next = p->link;
-		free(p);
-		p = next;
+	p = list;				// 포인터 p에 헤드 포인터 list의 값을 복사
+	while (p != NULL) {		// p가 NULL이 될때까지 반복
+		next = p->link;		// p가 가리키는 공간을 반납하면 p->link를 참조할수 없음, 따라서 free 호출전, p->link를 next라는 포인터에 저장
+		free(p);			// 동적 메모리 반납
+		p = next;			// next를 p에 대입하여 다음 노드로 이동
 	}
 
 	return 0;
