@@ -1,4 +1,2 @@
 # c_programming_practice
- MyFirstRepo.
-
- 아 힘들다 ㅠㅠ
+## C 프로그래밍에 대한 내용을 작성합니다.
